@@ -1,0 +1,49 @@
+/* Header > Nav > Menu */
+li#dropdown {
+    display: inline-block;
+}
+
+#dropbtn:hover {
+    color: black;
+}
+
+#dropdownContent {
+    background-color: rgb(255, 196, 0);
+    z-index: 1;
+    position: absolute;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    min-width: 300px;
+    display: none;
+}
+
+#dropdownContent a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    margin-bottom: 15px;
+}
+
+#dropdownContent a:hover {
+    background-color: rgb(241, 241, 241);
+}
+
+/* Header > Nav > About*/
+#dropdownContentAbout {
+    background-color: rgb(255, 196, 0);
+    z-index: 1;
+    position: absolute;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    min-width: 300px;
+    display: none;
+}
+
+#dropdownContentAbout a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    margin-bottom: 15px;
+}
+
+#dropdownContentAbout a:hover {
+    background-color: rgb(241, 241, 241);
+}
