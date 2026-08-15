@@ -1,11 +1,6 @@
 /********************************************** Very small mobile device (up to 480px) *********************************************/
-@media (max-width: 480px) {
-    body {
-        overflow-x: hidden;
-        margin: 0;
-        padding: 0;
-
-    }
+/* For Header */
+@media(max-width: 1022px) {
 
     /* header */
     .sub-header {
@@ -34,19 +29,20 @@
     .hamburger {
         position: sticky;
         top: 0;
-        width: 30px;
-        height: 21px;
+        width: 31px;
+        height: 20px;
         z-index: 100;
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
         gap: 5px;
     }
 
     .hamburger span {
         display: block;
         width: 100%;
-        height: 4px;
-        background-color: yellow;
+        height: 2px;
+        background-color: rgb(255, 255, 255);
         transition: all 0.3s ease;
     }
 
@@ -57,18 +53,18 @@
     .menu {
         position: fixed;
         top: 0;
-        right: -500%;
+        left: -500%;
         background-color: rgb(92, 58, 16);
         width: 50%;
         height: 100%;
         min-width: 300px;
         z-index: 99;
-        padding: 130px 30px;
+        padding: 30px 30px;
         transition: all 0.3s ease;
     }
 
     nav ul li {
-        border-bottom: 1px solid #eee;
+        border-bottom: 1px solid #eeeeee73;
     }
 
     nav ul {
@@ -78,11 +74,11 @@
     }
 
     nav ul li a {
-        font-size: 1.4em;
+        font-size: 1.3em;
     }
 
     #dropbtn {
-        font-size: 1.4em;
+        font-size: 1.3em;
     }
 
     #dropdownContent {
@@ -93,9 +89,46 @@
         min-width: 250px
     }
 
-
     .menu-toggle:checked~.menu {
-        right: 0;
+        left: 0;
+    }
+
+    .menu-toggle:checked+.hamburger span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .menu-toggle:checked+.hamburger span:nth-child(2) {
+        display: none;
+    }
+
+    .menu-toggle:checked+.hamburger span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+    .overlay {
+        background-color: rgba(0, 0, 0, 0.427);
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 98;
+        display: none;
+    }
+
+    .menu-toggle:checked~.overlay {
+        display: block;
+    }
+}
+
+/* __________________________________________ */
+
+@media (max-width: 480px) {
+    body {
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+
     }
 
     /* Header > Logo */
@@ -109,7 +142,7 @@
     }
 
     .logo-mobile>img {
-        transform: scale(1.7);
+        transform: scale(1.6);
         width: 100px;
         padding-top: 15px;
         padding-bottom: 8px;
@@ -118,29 +151,30 @@
 
     /* banner */
     .sub-banner>img {
-        width: 100vw;
+        width: 100%;
+        max-width: 1000px;
         padding-top: 50px;
     }
 
     .sub-banner {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        padding: 30px;
-        text-align: center;
-        padding: 30px 10px;
+        justify-content: start;
+        align-items: start;
+        overflow-y: hidden;
     }
 
     .titel-banner {
-        width: 100%;
+        text-align: left;
     }
 
     .sub-banner>.titel-banner>h1 {
-        font-size: 2.5em;
+        font-size: 2.3em;
     }
 
     .titel-banner>p {
-        font-size: 1.3em;
+        font-size: 1.1em;
+        color: rgb(105, 104, 104);
     }
 
     .titel-banner>a>button {
@@ -148,7 +182,9 @@
     }
 
     .location {
-        font-size: 1.2em;
+        font-size: 1.1em;
+        top: 10px;
+
     }
 
     /* drei-images */
@@ -166,6 +202,7 @@
     .drei-images>div>img {
         width: 100%;
         border: none;
+        border: 3px solid white;
     }
 
     .salade-c {
@@ -181,55 +218,7 @@
         width: 100%;
     }
 
-    /* Top Our Fast Food  */
-    .main-fast-food {
-        background-color: black;
-        color: white;
-        padding-top: 20px;
-        padding-bottom: 40px;
-
-    }
-
-    .main-fast-food>.titel-fast-food {
-        padding: 50px 30px;
-    }
-
-    .para {
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-        font-size: 1.2em;
-    }
-
-    .sub-fast-food {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .fast-food-one {
-        padding: 30px 0;
-        font-size: 1.1em;
-    }
-
-    .fast-food-one::before {
-        width: 100%;
-    }
-
-    .fast-food-one::before {
-        height: 107px;
-
-    }
-
-    .fast-food-one>img {
-        width: 100%;
-    }
-
-    .see-More-fast-food {
-        margin: 0 auto;
-    }
-
-    /*  Our Catégories */
+    /*  Our Categories */
     .sub-catégories {
         display: grid;
         grid-template-columns: 1fr;
@@ -247,16 +236,100 @@
         text-align: center;
         font-size: 1.5em;
         font-weight: bold;
-        padding-top: 15px;
     }
 
-    /* Reviews */
-    .sub-reviews {
+    /* About This Food */
+    .spécial-food {
         display: flex;
         flex-direction: column;
-        gap: 80px;
-        justify-content: space-between;
+        align-items: start;
+        font-size: 1.1em;
+        padding-right: 0;
+        line-height: 1.5;
+    }
+
+    .spécial-food>img {
+        width: 100%;
+    }
+
+    .spécial-food>div {
+        padding-right: 30px;
+        padding-left: 30px;
+        padding-bottom: 30px;
+    }
+
+    .spécial-food>div>button {
+        font-size: 1.1em;
+    }
+
+    /* footer */
+    .ft-titel>h2 {
+        font-size: 2em;
+        line-height: 1.5;
+    }
+
+    .ft-links>a {
+        color: white;
+        text-decoration: none;
+        margin-right: 20px;
+        font-size: 1.1em;
+
+    }
+
+}
+
+@media (max-width: 767px) {
+
+    /* Top Our Fast Food  */
+    .main-fast-food {
+        background-color: black;
+        color: white;
+        padding-top: 5px;
+        padding-bottom: 40px;
+
+    }
+
+    .main-fast-food>.titel-fast-food {
+        padding: 50px 30px;
+    }
+
+    .para {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        font-size: 1.2em;
+    }
+
+    .fastfood-image {
+        display: flex;
         align-items: center;
+        flex-direction: column;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    /* Reviews */
+    .main-reviews {
+        padding: 50px 30px;
+    }
+
+    .leute {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .leute>.profile {
+        padding-bottom: 100px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.274);
+        border-left: none;
+        border-radius: 5px;
+        padding: 30px;
     }
 
     .sub-reviews>img {
@@ -272,54 +345,7 @@
         margin-top: 10px;
         text-align: start;
     }
-
-    /* About This Food */
-    .spécial-food {
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-        font-size: 1.2em;
-        padding-right: 0;
-    }
-
-    .spécial-food>img {
-        width: 100%;
-    }
-
-    .spécial-food>div {
-        padding-right: 30px;
-        padding-left: 30px;
-        padding-bottom: 30px;
-    }
-
-    .spécial-food>div>button {
-        font-size: 1.3em;
-    }
-
-    /* footer */
-    .ft-titel>h2 {
-        font-size: 2.3em;
-        line-height: 1.5;
-    }
-
-    .ft-links>a {
-        color: white;
-        text-decoration: none;
-        margin-right: 20px;
-        font-size: 1.3em;
-
-    }
-
 }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -327,97 +353,6 @@
 
 /********************************************** Medium mobile device (481px to 767px) **************************************/
 @media (min-width: 481px) and (max-width: 767px) {
-
-    /* header */
-    .sub-header {
-        display: flex;
-        justify-content: space-between;
-        flex-direction: row-reverse;
-    }
-
-    .call-me-mobile {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 13px;
-        padding: 5px 30px;
-        line-height: 1.5;
-        font-size: 1.2em;
-        color: white;
-        background-color: black;
-        text-align: center;
-    }
-
-    .call-me-mobile i {
-        font-size: 25px;
-    }
-
-    .hamburger {
-        position: sticky;
-        top: 0;
-        width: 30px;
-        height: 21px;
-        z-index: 100;
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-    }
-
-    .hamburger span {
-        display: block;
-        width: 100%;
-        height: 4px;
-        background-color: yellow;
-        transition: all 0.3s ease;
-    }
-
-    .call-me {
-        display: none;
-    }
-
-    .menu {
-        position: fixed;
-        top: 0;
-        right: -500%;
-        background-color: rgb(92, 58, 16);
-        width: 50%;
-        height: 100%;
-        min-width: 300px;
-        z-index: 99;
-        padding: 130px 30px;
-        transition: all 0.3s ease;
-    }
-
-    nav ul li {
-        border-bottom: 1px solid #eee;
-    }
-
-    nav ul {
-        display: flex;
-        flex-direction: column;
-        gap: 25px;
-    }
-
-    nav ul li a {
-        font-size: 1.4em;
-    }
-
-    #dropbtn {
-        font-size: 1.4em;
-    }
-
-    #dropdownContent {
-        min-width: 250px
-    }
-
-    #dropdownContentAbout {
-        min-width: 250px
-    }
-
-
-    .menu-toggle:checked~.menu {
-        right: 0;
-    }
 
     /* Header > Logo */
     .logo>img {
@@ -449,16 +384,16 @@
         flex-direction: column;
         align-items: center;
         padding: 30px;
-        text-align: center;
+        text-align: left;
         padding: 30px 30px;
     }
 
     .titel-banner>p {
-        font-size: 1.3em;
+        font-size: 1.1em;
     }
 
     .titel-banner>a>button {
-        font-size: 1.3em;
+        font-size: 1.1em;
     }
 
     .location {
@@ -479,8 +414,6 @@
 
     .drei-images>div>img {
         width: 100%;
-        border: 5px solid white;
-        border: none;
     }
 
     .salade-c {
@@ -494,64 +427,6 @@
     .item3 {
         grid-area: span 1 / span 2;
         width: 100%;
-    }
-
-
-    /* Top Our Fast Food  */
-    .main-fast-food {
-        background-color: black;
-        color: white;
-        padding-top: 20px;
-        padding-bottom: 40px;
-    }
-
-    .main-fast-food>.titel-fast-food {
-        padding: 50px 30px;
-    }
-
-    .para {
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-        font-size: 1.2em;
-    }
-
-    .sub-fast-food {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 10px;
-        margin: 0 auto;
-        padding-left: 30px;
-        justify-content: center;
-        line-height: 1.5;
-        font-size: 1.1em;
-    }
-
-    .fast-food-one {
-        padding: 30px 0;
-        font-size: 1.1em;
-    }
-
-    .fast-food-one::before {
-        width: 95%;
-    }
-
-    .fast-food-one::before {
-        height: 115px;
-
-    }
-
-    .fast-food-one>div {
-        bottom: 12%;
-    }
-
-    .fast-food-one>img {
-        width: 95%;
-        height: auto;
-    }
-
-    .see-More-fast-food {
-        margin: 0 auto;
     }
 
 
@@ -570,30 +445,7 @@
 
     .taco-a>img {
         width: 80%;
-        height: 230px;
-    }
-
-    /* Reviews */
-    .sub-reviews {
-        display: flex;
-        flex-direction: column;
-        gap: 80px;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .sub-reviews>img {
-        width: 100%;
         height: auto;
-        transform: scale(1);
-    }
-
-    .para-review {
-        width: 100%;
-        line-height: 1.5;
-        font-size: 1.2em;
-        margin-top: 10px;
-        text-align: start;
     }
 
     /* About This Food */
@@ -601,8 +453,9 @@
         display: flex;
         flex-direction: column;
         align-items: start;
-        font-size: 1.2em;
+        font-size: 1.1em;
         padding-right: 0;
+        line-height: 1.8;
     }
 
     .spécial-food>img {
@@ -616,8 +469,60 @@
     }
 
     .spécial-food>div>button {
-        font-size: 1.3em;
+        font-size: 1.1em;
     }
 
 
+}
+
+@media(min-width: 500px) and (max-width: 767px) {}
+
+
+
+@media (min-width: 600px) and (max-width: 767px) {
+
+    /* Reviews */
+    .main-reviews {
+        padding: 50px 30px;
+    }
+
+    .leute {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .leute>.profile {
+        padding-bottom: 100px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.274);
+        border-left: none;
+        border-radius: 5px;
+        padding: 30px;
+    }
+
+    .sub-reviews>img {
+        width: 100%;
+        height: auto;
+        transform: scale(1.2);
+    }
+
+    .para-review {
+        width: 100%;
+        line-height: 1.5;
+        font-size: 1.2em;
+        margin-top: 10px;
+        text-align: start;
+    }
+
+    .leute>div>button {
+        background-color: white;
+        border: none;
+        padding: 13px;
+        border-radius: 100px;
+        font-size: 1.1em;
+        cursor: pointer;
+        margin-left: 100px;
+    }
 }
